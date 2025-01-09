@@ -78,3 +78,27 @@ class Livro(models.Model):
     autor = models.CharField(max_length=100)
     data = models.IntegerField()
 ```
+
+## Autenticação JWT
+Esta API utiliza JWT (JSON Web Tokens) para autenticação. Antes de acessar qualquer endpoint protegido, você precisa obter um token de acesso.
+
+## Obter o token de acesso
+Faça uma requisição `POST` para o endpoint `/api/token/` com as credenciais de um usuário registrado:
+
+### Endpoint:
+POST /api/token/
+
+### Body (JSON):
+```bash
+{
+  "username": "seu_usuario",
+  "password": "sua_senha"
+}
+```
+O retorno será:
+```bash
+{
+  "access": "seu_token_de_acesso",
+  "refresh": "seu_token_de_refresh"
+}
+```
